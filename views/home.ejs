@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Quiz App</title>
+  </head>
+  <body>
+    <section class="container">
+      <button class="start-btn btn">Start Quiz</button>
+      <span class="score hide">Score:- 5</span>
+      <span class="count-down"></span>
+      <div class="main hide">
+        <div class="question__container">
+          <span class="question__text"
+            >Question 1:- Lorem ipsum dolor sit amet consectetur adipisicing
+            elit. Dolor culpa illo velit vel eveniet similique cupiditate qui
+            doloribus corrupti? Modi!</span
+          >
+          <div class="answer__container">
+            <button class="answer__btn btn" type="button">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto
+              quibusdam vel blanditiis error impedit inventore similique quas
+              tempore atque illum!
+            </button>
+            <button class="answer__btn btn" type="button">Answer 2</button>
+            <button class="answer__btn btn" type="button">Answer 3</button>
+            <button class="answer__btn btn" type="button">Answer 4</button>
+          </div>
+        </div>
+
+        <div class="action__container">
+          <button class="next__btn btn" type="button">Next</button>
+        </div>
+      </div>
+    </section>
+    <section id="questions-sec" class="hide">
+      <%=questions%>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
