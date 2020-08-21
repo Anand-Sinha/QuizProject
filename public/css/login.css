@@ -1,0 +1,22 @@
+body{
+  text-align: center;
+  background-color: rgba(90,90,90,0.1)
+}
+div{
+  text-align: center;
+}
+.row{
+  width: 70%;
+  margin: 15vh auto;
+  padding: 50px 10vw;
+  background-color: rgba(90,90,90,0.2);
+  border-radius: 20px;
+  border: 1px black dashed;
+    color: rgba(30,30,30,0.5);
+}
+.onlineLogin{
+  border-left: 1px rgba(30,30,30,0.3) solid;
+}
+.col-lg-6{
+  margin: 20vh auto;
+}

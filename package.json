@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app.js",
+    "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
   },
   "author": "",
   "license": "ISC",
@@ -12,9 +13,18 @@
     "node": "v11.0.0"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.10.4",
+    "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
-    "mongoose": "^5.10.0"
+    "express-session": "^1.17.1",
+    "mongoose": "^5.10.0",
+    "parcel-bundler": "^1.12.4",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.0.1",
+    "path": "^0.12.7"
   }
 }

@@ -1,5 +1,7 @@
-// DOM elements
-//jshint esversion:6
+// import { getQuestion } from "./getQuestions";
+
+// import axios from "axios";
+
 const startBtn = document.querySelector(".start-btn");
 const nextBtn = document.querySelector(".next__btn");
 const resultBtn = document.querySelector(".result-btn");
@@ -15,44 +17,63 @@ let score = 0;
 let previousScore = 0;
 let countDownDate;
 var flag = 0;
-const qsn = JSON.parse($("#questions-sec").html());
+let questions = [];
+// const qsn = JSON.parse($("#questions-sec").html());
+// console.log(questions);
 
 // Functions
 
+const getQuestion = async () => {
+  try {
+    const result = await axios({
+      method: "GET",
+      url: "/api/v1/ques",
+    });
+    let questionsResult = result.data.data.data;
+    questions = questionsResult;
 
+    //
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// On the load of the window
+window.addEventListener("load", async () => {
+  await getQuestion();
+});
 
 function beginCountdown() {
   var x = setInterval(() => {
-    if (flag==1){
+    if (flag == 1) {
       countDown.innerHTML = " ";
       clearInterval(x);
+    } else {
+      // Get today's date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the result in the element
+      countDown.innerHTML =
+        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+      // If the count down is finished, write some text
+      if (distance < 0) {
+        clearInterval(x);
+        countDown.innerHTML = "EXPIRED";
+        showResults();
+      }
     }
-    else{
-    // Get today's date and time
-    var now = new Date().getTime();
-
-    // Find the distance between now and the count down date
-    var distance = countDownDate - now;
-
-    // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor(
-      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    // Display the result in the element
-    countDown.innerHTML =
-      days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-    // If the count down is finished, write some text
-    if (distance < 0) {
-      clearInterval(x);
-      countDown.innerHTML = "EXPIRED";
-      showResults();
-    }
-  }
   }, 1000);
 }
 
@@ -128,14 +149,17 @@ function showResults() {
   mainContainer.classList.add("hide");
   scoreElement.classList.remove("hide");
   scoreElement.innerText = `Score:- ${score}`;
-  flag=1;
+  flag = 1;
 }
 
 // Event listeners
-$("#start-btn").hover(function(){
+$("#start-btn").hover(function () {
   console.log(qsn);
 });
-startBtn.addEventListener("click", startGame);
+startBtn.addEventListener("click", () => {
+  console.log("Start button is clicked");
+  startGame();
+});
 nextBtn.addEventListener("click", () => {
   if (shuffleQuestionsArray.length > currentQuesIndex + 1) {
     currentQuesIndex += 1;
@@ -145,4 +169,13 @@ nextBtn.addEventListener("click", () => {
   }
 });
 
-const questions = qsn;
+var count = 2;
+$(".addOption").click(function() {
+  count = count + 1;
+    // var inHtml = $(".additionalOpt").html();
+    $(".options").append('<input type="text" name="answer[]" class="answer" value="" placeholder="Option ' + count + '"><input type="radio" id="answer' + count + '" name="val" value="ans' + count + '">');
+});
+
+$(".submit").click(function() {
+  $(".num").val(count);
+});

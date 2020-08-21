@@ -1,14 +1,16 @@
 //jshint esversion:6
-
+require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
 const path = require("path");
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 //requiring local files
 const quesRouter = require("./routes/quesRouter");
 const viewRouter = require("./routes/viewRouter");
+const addQuesRouter = require("./routes/addQuesRouter");
 
 const app = express();
 
@@ -22,68 +24,43 @@ mongoose.connect(
   "mongodb+srv://admin-anand:Mongod123@cluster0-ut4en.mongodb.net/quesDB",
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
+const userSchema = new mongoose.Schema ({
+  email: String,
+  password: String
+});
 
-// var vals,ques1,a1=false,a2=false,a3=false,a4=false;
+const User = new mongoose.model("User", userSchema);
 
-// console.log(ques1);
+// login page
+app.get("/",function(req,res){
+  res.render("login");
+});
+app.post("/",function(req,res){
+  console.log(req.body);
+});
+// registration page
+app.get("/register",function(req,res){
+  res.render("register");
+});
 
+app.post("/register",function(req,res){
+  console.log(req.body);
+});
+
+app.get("/pp",function(req,res){
+  res.render("privacy");
+});
+app.get("/tc",function(req,res){
+  res.render("tc");
+});
 //setting up the middleware for questions
 app.use("/api/v1/ques", quesRouter);
 
 //setting up middleware for rendering home page
-app.use("/", viewRouter);
+app.use("/home", viewRouter);
 
-app.get("/add", function (req, res) {
-  res.render("addQues");
-});
-
-app.post("/add", function (req, res) {
-  console.log(req.body);
-  const question = req.body.question;
-  const option1 = req.body.answer1;
-  const option2 = req.body.answer2;
-  const option3 = req.body.answer3;
-  const option4 = req.body.answer4;
-  const ans = req.body.val;
-  if (ans == "ans1") {
-    a1 = true;
-  } else if (ans == "ans2") {
-    a2 = true;
-  } else if (ans == "ans3") {
-    a3 = true;
-  } else if (ans == "ans4") {
-    a4 = true;
-  }
-  const ques = new Ques({
-    question: question,
-    answers: [
-      {
-        text: option1,
-        correct: a1,
-      },
-      {
-        text: option2,
-        correct: a2,
-      },
-      {
-        text: option3,
-        correct: a3,
-      },
-      {
-        text: option4,
-        correct: a4,
-      },
-    ],
-  });
-  // console.log(ques);
-  ques.save(function (err, result) {
-    if (err) {
-      res.send("fail");
-    } else {
-      res.send("success");
-    }
-  });
-});
+//setting up the middleware for adding the questions
+app.use("/add", addQuesRouter);
 
 app.listen(process.env.PORT || 3000, function () {
   console.log("Started...");
