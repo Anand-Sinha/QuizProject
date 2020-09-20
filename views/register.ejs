@@ -1,33 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Signup to ProjectQuiz</title>
+    <!-- <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    /> -->
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="google-signin-client_id" content="273959803942-777qbr8ib85mmj41tjsik8alu09vn6ar.apps.googleusercontent.com">
-  <title>Login to ProjectQuiz</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/login.css" />
-</head>
-
-<body>
-  <div class="row">
-    <h1 class="col-lg-12">Register Here</h1>
-    <div class="localLogin col-lg-6">
-      <form class="" action="/register" method="post">
-        <input type="email" name="email" value="" placeholder="Create your email">
-        <br>
-        <input type="password" name="password" value="" placeholder="Create your password">
-        <br><input type="submit" name="type" value="Register">
-      </form>
-    </div>
-    <div class="onlineLogin col-lg-6">
-      <div class="g-signin2" data-onsuccess="onSignIn"></div>
-    </div>
-  </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-  <script type="module" src="/js/index.js"></script>
-</body>
-
+  <body>
+    <div class="row">
+      <h1 class="col-lg-12">Register Here</h1>
+      <div class="col-lg-6">
+        <form class="sign-up">
+          <input
+            type="text"
+            class="name"
+            name="name"
+            placeholder="Enter your name"
+          /><br />
+          <input
+            type="email"
+            name="email"
+            class="email"
+            placeholder="Enter your email"
+          />
+          <br />
+          <input
+            type="password"
+            name="password"
+            class="password"
+            placeholder="Create your password"
+          /><br />
+          <input
+            type="password"
+            class="confirm-password"
+            name="confirm-password"
+            placeholder="Confirm your password"
+          />
+          <br />
+          <button class="submit-button">signup</button>
+        </form>
+      </div>
+    <script src="/js/signUp.js"></script>
+  </body>
 </html>

@@ -41,19 +41,3 @@ input{
 span{
   color: lightgray;
 }
-.addOption{
-  margin: 0 auto;
-  background-color: #e0ece4;
-  border-radius: 50%;
-  height: 50px;;
-  width: 50px;
-  font-size: 22px;
-  color: black;
-}
-.addOption:hover{
-  background-color: purple;
-  color: white;
-}
-.hide{
-  display: none;
-}

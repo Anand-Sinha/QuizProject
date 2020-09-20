@@ -1,66 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="google-signin-client_id" content="273959803942-777qbr8ib85mmj41tjsik8alu09vn6ar.apps.googleusercontent.com">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/style.css" />
-  <title>Quiz App</title>
-</head>
-
-<body>
-  <section class="container">
-    <button class="start-btn btn">Start Quiz</button>
-    <span class="score hide">Score:- 5</span>
-    <span class="count-down"></span>
-    <div class="main hide">
-      <div class="question__container">
-        <span class="question__text">Question 1:- Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Dolor culpa illo velit vel eveniet similique cupiditate qui
-          doloribus corrupti? Modi!</span>
-        <div class="answer__container">
-          <button class="answer__btn btn" type="button">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto
-            quibusdam vel blanditiis error impedit inventore similique quas
-            tempore atque illum!
-          </button>
-          <button class="answer__btn btn" type="button">Answer 2</button>
-          <button class="answer__btn btn" type="button">Answer 3</button>
-          <button class="answer__btn btn" type="button">Answer 4</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Quiz App</title>
+  </head>
+  <body>
+    <section class="container">
+      <button class="start-btn btn">Start Quiz</button>
+      <span class="score hide">Score:- 5</span>
+      <span class="count-down"></span>
+      <div class="main hide">
+        <div class="question__container">
+          <span class="question__text"
+            >Question 1:- Lorem ipsum dolor sit amet consectetur adipisicing
+            elit. Dolor culpa illo velit vel eveniet similique cupiditate qui
+            doloribus corrupti? Modi!</span
+          >
+          <div class="answer__container">
+            <button class="answer__btn btn" type="button">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto
+              quibusdam vel blanditiis error impedit inventore similique quas
+              tempore atque illum!
+            </button>
+            <button class="answer__btn btn" type="button">Answer 2</button>
+            <button class="answer__btn btn" type="button">Answer 3</button>
+            <button class="answer__btn btn" type="button">Answer 4</button>
+          </div>
         </div>
-        <div class="hide g-signin2" data-onsuccess="onSignIn"></div>
-        <a href="#" onclick="signOut();">Sign out</a>
+
+        <div class="action__container">
+          <button class="next__btn btn" type="button">Next</button>
+        </div>
       </div>
+    </section>
 
-      <div class="action__container">
-        <button class="next__btn btn" type="button">Next</button>
-      </div>
-    </div>
-  </section>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-  <script type="module" src="/js/index.js"></script>
-  <script type="text/javascript">
-    function signOut() {
-      var auth2 = gapi.auth2.getAuthInstance();
-      auth2.signOut().then(function() {
-        console.log('User signed out.');
-        window.location.replace("/");
-      });
-    }
-
-    function onSignIn(googleUser) {
-      var profile = googleUser.getBasicProfile();
-      console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-      console.log('Name: ' + profile.getName());
-      console.log('Image URL: ' + profile.getImageUrl());
-      console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-    }
-  </script>
-</body>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="/js/bundle.js"></script>
+  </body>
 </html>

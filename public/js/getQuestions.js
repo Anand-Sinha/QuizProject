@@ -6,7 +6,9 @@ export const getQuestion = async () => {
       method: "GET",
       url: "/api/v1/ques",
     });
-    console.log(result);
+    // console.log(result);
+    const resultData = result.data.data.data;
+    return resultData;
   } catch (error) {
     console.log(error);
   }
