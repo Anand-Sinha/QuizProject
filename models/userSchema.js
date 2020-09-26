@@ -1,3 +1,4 @@
+//jshint esversion:8
 const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
@@ -10,7 +11,7 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: [true, "A user must have a valid-email"],
-    unique: [true, "This Email-ID is already taken. Please enter a new one"],
+    unique: [true, "This ID is already taken. Please enter a new one"],
     lowercase: true,
     validate: [validator.isEmail, "Please provide a valid-Email"],
   },
@@ -24,18 +25,18 @@ const userSchema = new mongoose.Schema({
     required: [true, "A user must have a password"],
     minlength: 8,
   },
-  confirmedPassword: {
-    type: String,
-    required: [true, "Please confirm your password"],
-    select: false,
-    validate: {
-      // this will validate if th password is same as confirmed password
-      validator: function (el) {
-        return el === this.password;
-      },
-      message: "Password and confirm Password must be same",
-    },
-  },
+  // confirmedPassword: {
+  //   type: String,
+  //   required: [true, "Please confirm your password"],
+  //   select: false,
+  //   validate: {
+  //     // this will validate if th password is same as confirmed password
+  //     validator: function (el) {
+  //       return el === this.password;
+  //     },
+  //     message: "Password and confirm Password must be same",
+  //   },
+  // },
 });
 
 // middleware for b-crypting the password

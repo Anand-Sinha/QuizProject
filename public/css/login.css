@@ -20,3 +20,6 @@ div {
 .col-lg-6 {
   margin: 20vh auto;
 }
+.hide{
+  display: none;
+}
