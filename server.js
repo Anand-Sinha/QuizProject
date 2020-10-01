@@ -1,4 +1,4 @@
-//jshint esversion:8
+//jshint esversion:6
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
