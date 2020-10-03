@@ -32,13 +32,15 @@
       cookie = parts[2];
     }
 
-    console.log("FROM HERE");
-    console.log(cookie);
+    // console.log("FROM HERE");
+    // console.log(cookie);
 
     cookie = cookie.split("").slice(12, 36).join("");
 
     const displayQuiz = (quiz) => {
       let markup;
+      var address = window.location.href.split("/")[2];
+      console.log(address);
       if (quiz === null) {
         markup = `<h4>You do not have any quiz</h4>
           <h5><a href='/create-quiz'>Click here</a> to create quiz</h5>
@@ -47,7 +49,7 @@
         markup = `
         <h4>Quiz name:- ${quiz.quizName} </h4>
         <h5>Created at:- ${quiz.createdAt}</h5>
-        <p style="display: inline;">Click on the link to copy & share the link:- <h6 class="select" id="select" style="user-select: all; display: inline;">http://127.0.0.1:3000/start-quiz/${quiz._id}</h6></p>
+        <p style="display: inline;">Click on the link to copy & share the link:- <h6 class="select" id="select" style="user-select: all; display: inline;">${address}/start-quiz/${quiz._id}</h6></p>
       `;
       }
 
@@ -57,7 +59,7 @@
 
       var toBeCopied = Array.from(document.querySelectorAll(".select"));
       if (toBeCopied) {
-        console.log(toBeCopied);
+        // console.log(toBeCopied);
         toBeCopied.forEach((el) => {
           el.onclick = function () {
             document.execCommand("Copy");
