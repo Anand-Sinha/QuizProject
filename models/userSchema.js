@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
     required: [true, "A user must have a valid-email"],
     unique: [true, "This ID is already taken. Please enter a new one"],
     lowercase: true,
-    validate: [validator.isEmail, "Please provide a valid-Email"],
+    // validate: [validator.isEmail, "Please provide a valid-Email"],
   },
   role: {
     type: String,
@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: [true, "A user must have a password"],
+    // required: [true, "A user must have a password"],
     minlength: 8,
   },
   // confirmedPassword: {

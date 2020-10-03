@@ -14,10 +14,10 @@
     <h1 class="col-lg-12">Register Here</h1>
     <div class="col-lg-6">
       <form class="sign-up" method="post" action="api/user/sign-up" id="sign-up">
-        <input type="text" class="name" name="name" placeholder="Enter your name" /><br />
-        <input type="email" name="email" class="email" placeholder="Enter your email" />
+        <input type="text" class="name" name="name" placeholder="Enter your name" required/><br />
+        <input type="email" name="email" class="email" placeholder="Enter your email" required/>
         <br />
-        <input type="password" name="password" class="password" placeholder="Create your password" /><br />
+        <input type="password" name="password" class="password" placeholder="Create your password" required/><br />
         <!-- <input
             type="password"
             class="confirm-password"
@@ -32,7 +32,7 @@
 
 
     <div class="onlineLogin col-lg-6">
-      <form class="oauth-sign-up" action="api/user/oauth-sign-up" method="post">
+      <form class="oauth-sign-up" action="api/user/sign-up" method="post">
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
         <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
         </fb:login-button>
@@ -40,8 +40,8 @@
           <button class="register" type="button" name="button">
             Login
           </button></a>
-        <input id="oauthId" class="hide" type="text" name="_id" value="">
-        <input id="oauthName" class="hide" type="text" name="userName" value="">
+          <input id="oauthName" class="hide" type="text" name="name" value="">
+        <input id="oauthId" class="hide" type="text" name="email" value="">
         <input id="oauth" class="hide" type="submit">
     </div>
     </form>

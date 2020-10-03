@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 var OUserSchema = new mongoose.Schema({
-  _id: {
+  u_id: {
     type: String,
     required: [true, "User must have an ID"],
   },

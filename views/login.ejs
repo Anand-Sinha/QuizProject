@@ -21,7 +21,7 @@
       </form>
     </div>
     <div class="onlineLogin col-lg-6">
-      <form class="oauth-login" action="api/user/oauth-login" method="post">
+      <form class="oauth-login" action="api/user/login" method="post">
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
         <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
         </fb:login-button>
@@ -29,8 +29,8 @@
           <button class="register" type="button" name="button">
             Register
           </button></a>
-        <input id="oauthId" class="hide" type="text" name="_id" value="">
-        <input id="oauthName" class="hide" type="text" name="userName" value="">
+        <input id="oauthId" class="hide" type="text" name="email" value="">
+        <input id="oauthName" class="hide" type="text" name="name" value="">
         <input id="oauth" class="hide" type="submit">
     </div>
     </form>
