@@ -69,6 +69,7 @@ app.all("*", (req, res, next) => {
 
   next(err);
 });
+
 app.use(globalErrorHandler);
 
 module.exports = app;
