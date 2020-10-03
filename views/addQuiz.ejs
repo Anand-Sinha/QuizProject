@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Add questions to quiz.</title>
+    <link rel="stylesheet" href="css/style1.css" />
+  </head>
+  <body>
+    <div class="form">
+    <form id='quiz' method="POST" >
+      <span>Name  :</span>
+      <input type="text" name="name" class="name" value="" placeholder="Enter Quiz name Here.">
+      <br><br> <br>
+      <span>Question  :</span>
+      <input type="text" name="question" class="question" value="" placeholder="Enter Question Here.">
+      <br><br> <br>
+      <div class="options">
+      <input type="text" name="answer1" class="answer1 answer" value="" placeholder="Option 1">
+      <input type="radio" id="answer1" name="val"  value="ans1">
+      <input type="text" name="answer2" class="answer2 answer" value="" placeholder="Option 2">
+      <input type="radio" id="answer2" name="val" value="ans2">
+      </div>
+      <div class="additionalOpt"></div>
+      <div class="addOption"><h1>+</h1></div>
+      <input type="number" class="num hide" name="count" value="">
+      <br> <br>
+      <!-- <input type="submit" name="Submit-quiz" class="submit" value="Submit Quiz" > -->
+      <button type="button" id='addQuiz' class="submit">Submit Quiz</button>
+      <!-- <input type="submit" name="Submit-question" class="submit" value="Add Question" > -->
+      <button type="button" id='addQue'>Add Question</button>
+
+    </div>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="/js/addQuiz.js"></script>
+  </body>
+</html>

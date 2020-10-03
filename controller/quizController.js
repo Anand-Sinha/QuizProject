@@ -17,7 +17,7 @@ exports.addQuiz = catchAsync(async (req, res, next) => {
   const newQuiz = await Quiz.create({
     question: req.body.question,
     quizName: req.body.quizName,
-    user: req.user._id,
+    user: req.user._id || req.body.user,
     // user: req.cookies.user,
     //
   });
@@ -30,11 +30,21 @@ exports.addQuiz = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.getQuiz = catchAsync(async (req, res, next) => {
-  const { user, quizName } = req.params;
-  console.log(user, quizName);
+exports.getQuizByUser = catchAsync(async (req, res, next) => {
+  const { user } = req.params;
 
-  const quiz = await Quiz.find({ user, quizName });
+  const quiz = await Quiz.find({ user });
+
+  res.status(200).json({
+    status: "success",
+    data: quiz,
+  });
+});
+
+exports.getQuizByid = catchAsync(async (req, res, next) => {
+  const { quizId } = req.params;
+
+  const quiz = await Quiz.findById(quizId);
 
   res.status(200).json({
     status: "success",

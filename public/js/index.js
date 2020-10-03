@@ -1,6 +1,3 @@
-import { getQuestion } from "./getQuestions";
-
-// import axios from "axios";
 
 const startBtn = document.querySelector(".start-btn");
 const nextBtn = document.querySelector(".next__btn");
@@ -19,9 +16,29 @@ let countDownDate;
 var flag = 0;
 let questions = [];
 
+const getQuestion = async (quizId) => {
+  try {
+    const result = await axios({
+      method: "GET",
+      url: `/api/quiz/${quizId}`,
+    });
+    const resultData = result.data.data.question;
+    console.log(resultData);
+    return resultData;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // On the load of the window
 window.addEventListener("load", async () => {
-  questions = await getQuestion();
+  // questions = await getQuestion();
+  let href = window.location.href;
+  href = href.split("/");
+  const quizId = href[href.length - 1];
+  // getQuestion(quizId);
+  questions = await getQuestion(quizId);
+  console.log(questions);
 });
 
 function beginCountdown() {
@@ -84,10 +101,12 @@ function resetState() {
 }
 
 function showQuestion(question) {
-  questionText.textContent = `Que) ${question.question}`;
+  let quizQuestionText = question["questionText"];
+  questionText.textContent = `Que) ${quizQuestionText}`;
   question.answers.forEach((el) => {
     const button = document.createElement("button");
-    button.innerText = el.text;
+    console.log(el);
+    button.innerText = el.option;
     button.classList.add("btn");
     button.classList.add("answer__btn");
     if (el.correct) {

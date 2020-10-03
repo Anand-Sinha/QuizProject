@@ -1,6 +1,7 @@
 const express = require("express");
 const authController = require("../controller/authenticationController");
 const quizController = require("../controller/quizController");
+const { route } = require("./viewRouter");
 
 //creating a route
 const router = express.Router();
@@ -15,8 +16,12 @@ router
   )
   .post(authController.protect, quizController.addQuiz);
 
+// router for getting all quiz of a particular user
 router
-  .route("/:user/:quizName")
-  .get(authController.protect, quizController.getQuiz);
+  .route("/user/:user")
+  .get(authController.protect, quizController.getQuizByUser);
+
+// router for getting quiz with quizID
+router.get("/:quizId", quizController.getQuizByid);
 
 module.exports = router;

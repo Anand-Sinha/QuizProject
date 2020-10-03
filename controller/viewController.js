@@ -2,12 +2,17 @@ const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
 
 exports.renderHomePage = (req, res, next) => {
-  res.status(200).render("main");
+  if (!req.cookies.jwt) {
+    res.status(200).render("main");
+  } else {
+    res.status(200).render("mainl");
+  }
 };
 
-exports.renderAddQuesPage = (req, res, next) => {
-  res.status(200).render("addQues");
-};
+exports.renderAddQuizPage = catchAsync(async (req, res, next) => {
+  res.status(200).render("addQuiz");
+  next();
+});
 
 exports.renderLoginPage = catchAsync(async (req, res, next) => {
   res.status(200).render("login");
@@ -15,4 +20,12 @@ exports.renderLoginPage = catchAsync(async (req, res, next) => {
 
 exports.renderSignUp = catchAsync(async (req, res, next) => {
   res.status(200).render("register");
+});
+
+exports.renderMyQuiz = catchAsync(async (req, res, next) => {
+  res.status(200).render("index");
+});
+
+exports.renderPlayQuizPage = catchAsync(async (req, res, next) => {
+  res.status(200).render("home");
 });

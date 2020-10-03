@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+
+  <body>
+    <div class="my-quizes">
+      <a class="home" href="/">Go Back</a>
+      <!-- <h4>Quiz name:- Tech</h4>
+      <h5>Created at:- 02-10-2020</h5>
+      <p style="display: inline;">Click here to copy & share the link:- <h6 class="select" id="select" style="user-select: all; display: inline;">janfkbdhkgfbsjfg</h6></p>
+
+      <h4>Quiz name:- Gk</h4>
+      <h5>Created at:- 02-10-2020</h5>
+      <p style="display: inline;">Click here to copy & share the link:- <h6 class="select" id="select" style="user-select: all; display: inline;">janfkbdhkgfbsjfg</h6></p>
+
+      <h4>Quiz name:- Web dev</h4>
+      <h5>Created at:- 02-10-2020</h5>
+      <p style="display: inline;">Click here to copy & share the link:- <h6 class="select" id="select" style="user-select: all; display: inline;">janfkbdhkgfbsjfg</h6></p> -->
+    </div>
+  </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="text/javascript">
+    let cookie = document.cookie;
+    cookie = cookie.split("").slice(12, 36).join("");
+
+    const displayQuiz = (quiz) => {
+      let markup;
+      if (quiz === null) {
+        markup = `<h4>You do not have any quiz</h4>
+          <h5><a href='/create-quiz'>Click here</a> to create quiz</h5>
+        `;
+      } else {
+        markup = `
+        <h4>Quiz name:- ${quiz.quizName} </h4>
+        <h5>Created at:- ${quiz.createdAt}</h5>
+        <p style="display: inline;">Click on the link to copy & share the link:- <h6 class="select" id="select" style="user-select: all; display: inline;">http://127.0.0.1:3000/start-quiz/${quiz._id}</h6></p>
+      `;
+      }
+
+      document
+        .querySelector(".my-quizes")
+        .insertAdjacentHTML("beforeend", markup);
+
+      var toBeCopied = Array.from(document.querySelectorAll(".select"));
+      if (toBeCopied) {
+        console.log(toBeCopied);
+        toBeCopied.forEach((el) => {
+          el.onclick = function () {
+            document.execCommand("Copy");
+            window.getSelection().removeAllRanges();
+          };
+        });
+      }
+    };
+
+    const getQuiz = async () => {
+      try {
+        const result = await axios({
+          method: "GET",
+          url: `/api/quiz/user/${cookie}`,
+        });
+        const resultData = result.data.data;
+        console.log(resultData);
+
+        if (resultData.length === 0) {
+          displayQuiz(null);
+        } else {
+          resultData.forEach((quiz) => {
+            displayQuiz(quiz);
+          });
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    window.addEventListener("load", getQuiz);
+  </script>
+</html>
