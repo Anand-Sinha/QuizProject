@@ -54,6 +54,9 @@
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
   <!-- <script type="module" src="/js/index.js"></script> -->
   <script type="text/javascript">
+  window.onbeforeunload = function(e){
+  gapi.auth2.getAuthInstance().signOut();
+};
     function onSignIn(googleUser) {
       var profile = googleUser.getBasicProfile();
       document.querySelector("#oauthId").value = profile.getId();
