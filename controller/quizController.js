@@ -1,5 +1,6 @@
 const Quiz = require("../models/quizSchema");
 const catchAsync = require("../utils/catchAsync");
+const ShortUrl = require("../models/shortUrlSchema");
 
 exports.getAllQuiz = catchAsync(async (req, res, next) => {
   const quiz = await Quiz.find();
@@ -11,17 +12,23 @@ exports.getAllQuiz = catchAsync(async (req, res, next) => {
 });
 
 exports.addQuiz = catchAsync(async (req, res, next) => {
+
   // console.log(req.body);
   // console.log(req.user);
   // console.log(`cookie:- ${req.cookies}`);
+  // console.log(req.body._id);
+  // console.log(req.body.user);
   const newQuiz = await Quiz.create({
     question: req.body.question,
     quizName: req.body.quizName,
-    user: req.user._id || req.body.user,
+    user: req.user._id,
+    // req.user._id || req.body.user,
     // user: req.cookies.user,
     //
   });
 
+    console.log("here");
+    console.log(newQuiz);
   res.status(201).json({
     status: "Success",
     data: {
