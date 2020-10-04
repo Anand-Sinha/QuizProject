@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const shortId = require("shortid");
 
 var quizSchema = new mongoose.Schema({
   question: {
@@ -16,6 +17,11 @@ var quizSchema = new mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     required: [true, "A Quiz must have a creator"],
     ref: "User",
+  },
+  short:{
+    type:String,
+    required: true,
+    default: shortId.generate
   },
   createdAt: {
     type: Date,
