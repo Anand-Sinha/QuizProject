@@ -24,19 +24,23 @@
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script type="text/javascript">
 
-    let cookie = document.cookie;
-    console.log("FROM HERE");
-    console.log(cookie);
-    const parts = cookie.split("; ");
+  let cookie = getCookie("user");
+  console.log(cookie);
+
+    //Walkaround method for getting a cookie, returning error on hyper as it is generating its own cookie
+    // let cookie = document.cookie;
+    // console.log("FROM HERE");
+    // console.log(cookie);
+    // const parts = cookie.split("; ");
     // console.log(parts);
 
-    if(parts.length>1){
-      cookie = parts[2];
-    }
+    // if(parts.length>1){
+    //   cookie = parts[2];
+    // }
 
 
-    cookie = cookie.split("").slice(12, 36).join("");
-
+    cookie = cookie.split("").slice(7, 31).join("");
+console.log(cookie);
     const displayQuiz = (quiz) => {
       let markup;
       var address = window.location.href.split("/")[2];
@@ -90,6 +94,18 @@
         console.log(error);
       }
     };
+
+    function getCookie(cname) {
+     var name = cname + "=";
+     var ca = document.cookie.split(';');
+     for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if(c.indexOf(name) == 0)
+           return c.substring(name.length,c.length);
+     }
+     return "";
+    }
 
     window.addEventListener("load", getQuiz);
   </script>
