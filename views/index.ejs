@@ -25,6 +25,8 @@
   <script type="text/javascript">
 
     let cookie = document.cookie;
+    console.log("FROM HERE");
+    console.log(cookie);
     const parts = cookie.split("; ");
     // console.log(parts);
 
@@ -32,8 +34,6 @@
       cookie = parts[2];
     }
 
-    console.log("FROM HERE");
-    console.log(cookie);
 
     cookie = cookie.split("").slice(12, 36).join("");
 
