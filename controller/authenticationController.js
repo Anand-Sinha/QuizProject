@@ -131,9 +131,9 @@ exports.logout = catchAsync(async (req, res, next) => {
   //   expiresIn: new Date(Date.now() + 10 * 1000),
   //   httpOnly: true,
   // });
-  
-  res.clearCookie("jwt");
 
+  res.clearCookie("jwt");
+  res.clearCookie("user");
   res.status(200).json({
     status: "success",
     message: "User has been logged out",
