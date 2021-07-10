@@ -7,7 +7,7 @@
   </head>
   <body>
     <div class="form">
-    <form id='quiz' method="POST" >
+    <form id='name' method="POST" >
       <span>Name  :</span>
       <input type="text" name="name" class="name" value="" placeholder="Enter Quiz name Here.">
       <br><br> <br>
@@ -15,7 +15,7 @@
       <input type="text" name="question" class="question" value="" placeholder="Enter Question Here.">
       <br><br> <br>
       <div class="options">
-      <input type="text" name="answer1" class="answer1 answer" value="" placeholder="Option 1">
+      <input type="text" name="answer1" class="answer1 answer" value="" placeholder="Option 1"> 
       <input type="radio" id="answer1" name="val"  value="ans1">
       <input type="text" name="answer2" class="answer2 answer" value="" placeholder="Option 2">
       <input type="radio" id="answer2" name="val" value="ans2">
@@ -29,8 +29,8 @@
       <!-- <input type="submit" name="Submit-question" class="submit" value="Add Question" > -->
       <button type="button" id='addQue'>Add Question</button>
 
-    </div>
     </form>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="module" src="/js/addQuiz.js"></script>

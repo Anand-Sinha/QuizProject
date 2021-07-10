@@ -21,6 +21,8 @@ router.get("/my-quiz", authController.protect, viewController.renderMyQuiz);
 
 router.get("/start-quiz/:quizID", viewController.renderPlayQuizPage);
 
+router.get("/start-quiz", viewController.renderStartQuizPage);
+
 module.exports = router;
 
 // // login page

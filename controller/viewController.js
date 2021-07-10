@@ -29,3 +29,7 @@ exports.renderMyQuiz = catchAsync(async (req, res, next) => {
 exports.renderPlayQuizPage = catchAsync(async (req, res, next) => {
   res.status(200).render("home");
 });
+
+exports.renderStartQuizPage = catchAsync(async (req, res, next) => {
+  res.status(200).render("quizIdPage");
+});

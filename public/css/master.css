@@ -1,0 +1,237 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  transition: 0.3s;
+}
+body{
+  /* background: #fff; */
+  /* min-height: 200vh; */
+}
+::selection{
+  color:rgba(255,240,60,1);
+  background-color: transparent;
+}
+a{
+  color: white;
+  text-decoration: none;
+}
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.6s;
+  padding: 40px 195px;
+  z-index: 10000;
+}
+header .title{
+  position: relative;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  font-size: 2rem;
+  /* text-transform: capitalize; */
+  letter-spacing: 4px;
+  transition: 0.6s;
+}
+header ul{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header ul li{
+  position: relative;
+  list-style: none;
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+header ul li a{
+  position: relative;
+  margin: 0 15px;
+  text-decoration: none;
+  color: #fff;
+  letter-spacing: 2px;
+  font-weight: 700;
+  transition: 0.6s;
+}
+header ul li a:hover{
+  color: black;
+}
+header.sticky{
+  padding: 10px 80px;
+  background-color: rgba(40,40,40,0.6);
+  box-shadow: 10px 20px 40px rgba(0,0,0,0.2);
+}
+header.sticky .title,
+header.sticky ul li a{
+  color: #FFCC29;
+}
+.cover{
+  height: 80vh;
+  background-color: #FFCC29;
+}
+.image{
+  transform: scale(0.5) translateY(-50px);
+}
+.row{
+  width: 100%;
+  height: 100%;
+}
+.headText{
+  margin-top: 30vh;
+  margin-left: 20%;
+  color: #fff;
+  font-size: 5rem;
+  font-weight: 700;
+}
+.btn{
+  background-color: rgba(40,40,40,0.3);
+  padding: 10px 30px;
+  margin: 5px;
+  font-size: 1.2rem;
+  border: 2px solid rgba(40,40,40,0);
+  color: rgba(255,204,41,1);
+  font-weight: 700;
+}
+.firstBtn{
+  margin-left: 20%;
+}
+.btn:hover{
+  background-color: rgba(220,180,20,1);
+  border: 2px solid rgba(255,255,255,0.6);
+}
+btn::after{
+  background-color: rgba(40,40,40,0.3);
+}
+.features_bar{
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  position: relative;
+  top: -70px;
+}
+.features_bar img{
+  background-color: white;
+  border-radius: 100%;
+  border: 15px solid rgba(255,204,41,1);
+  /* border-radius: 100%; */
+  width: 180px;
+}
+.features_bar img:hover{
+  /* width: 100%; */
+  transition: 0.5s;
+  filter: hue-rotate(360deg);
+  /* box-shadow: 0.625rem 0px 2.5rem black; */
+  transform: scale(1.1);
+}
+.features_bar p{
+  font-size: 1rem;
+  letter-spacing: 2px;
+  margin-top: 20px;
+}
+.second{
+  height: 100vh;
+  background: #fff url("/images/bg2.png");
+  background-size: contain;
+  background-blend-mode: luminosity;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.quizzes{
+  text-align: center;
+  /* margin-top:100px; */
+  border-radius: 20px;
+  box-shadow: 0px 5px 40px 10px rgba(100,100,100,0.55);
+  /* height: 60vh; */
+  padding: 50px;
+  width: 25%;
+  background-color: rgba(255,204,41,0.7);
+}
+h2{
+  width: 100%;
+  color: #fff;
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+.textSecond{
+  margin: 0 auto 0;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+.or{
+  color: white;
+  margin-top: 30px;
+}
+.classBtn{
+  color: white;
+  border-radius: 10px;
+  background-color: rgba(40,40,40,0.3);
+  padding: 20px 40px;
+  margin: 20px;
+  width: 60%;
+  font-size: 1.5rem;
+  border: 2px solid rgba(40,40,40,0);
+  color: rgba(255,204,41,1);
+  font-weight: 700;
+}
+.classBtn:hover{
+  background-color: rgba(220,180,20,1);
+  border: 2px solid rgba(255,255,255,0.6);
+}
+.objective{
+
+}
+.head{
+  margin-bottom: : 100px;
+  color: white;
+  text-align: center;
+  padding: 15px 0 5px;
+  font-size: 1rem !important;
+  background-color: rgba(255,204,41,1);
+}
+.content{
+  text-align: center;
+  width: 60%;
+  padding: 100px;
+  margin: auto;
+}
+.third{
+  /* background-color: rgba(255,204,41,0.3) */
+}
+.contact_us{
+  padding: 5rem;
+  /* background-color: rgba(148,210,232,0.5); */
+  background-image: linear-gradient(to top, rgba(255,204,41,1) , #fff);
+}
+input,
+textarea{
+  margin: 20px auto;
+  padding: 10px 40px;
+  display: block;
+  border-radius: 10px;
+  border: none;
+  background-color: #FFCC29;
+  color: white;
+}
+::placeholder{
+color: white;
+}
+.copy{
+  background-color: #222;
+  margin: 0;
+}
+h4{
+  margin: 0;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  padding: 4px;
+}
