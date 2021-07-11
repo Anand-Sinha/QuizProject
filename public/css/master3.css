@@ -7,6 +7,8 @@
 }
 body{
   /* background: #fff; */
+  /* height: 100vh; */
+  /* overflow-y: hidden; */
   /* min-height: 200vh; */
 }
 ::selection{
@@ -74,7 +76,7 @@ header.sticky ul li a{
   color: #FFCC29;
 }
 .cover{
-  height: 80vh;
+  height: 75vh;
   background-color: #FFCC29;
 }
 .image{
@@ -110,127 +112,52 @@ header.sticky ul li a{
 btn::after{
   background-color: rgba(40,40,40,0.3);
 }
-.features_bar{
+.quiz{
+  box-shadow: 0 5px 40px rgba(0,0,0,0.2);
+  padding: 0;
+  display: inline-block;
+  margin: 20px auto;
   text-align: center;
-  width: 80%;
-  margin: auto;
-  position: relative;
-  top: -70px;
-}
-.features_bar img{
-  background-color: white;
-  border-radius: 100%;
-  border: 15px solid rgba(255,204,41,1);
-  width: 180px;
-}
-.features_bar img:hover{
-  transition: 0.5s;
-  filter: hue-rotate(360deg);
-  transform: scale(1.1);
-}
-.features_bar p{
-  font-size: 1rem;
-  letter-spacing: 2px;
-  margin-top: 20px;
-}
-.second{
-  height: 100vh;
-  background: #fff url("/images/bg2.png");
-  background-size: contain;
-  background-blend-mode: luminosity;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.quizzes{
-  text-align: center;
-  /* margin-top:100px; */
-  border-radius: 20px;
-  box-shadow: 0px 5px 40px 10px rgba(100,100,100,0.55);
-  /* height: 60vh; */
-  padding: 50px;
-  width: 25%;
-  background-color: rgba(255,204,41,0.7);
-}
-h2{
-  width: 100%;
-  color: #fff;
-  font-size: 2.4rem;
-  font-weight: 600;
-}
-.textSecond{
-  margin: 0 auto 0;
-  font-weight: 800;
-  letter-spacing: 3px;
-}
-.or{
-  color: white;
-  margin-top: 30px;
-}
-.classBtn{
-  color: white;
+  /* border: 2px solid #FFCC29; */
   border-radius: 10px;
-  background-color: rgba(40,40,40,0.3);
-  padding: 20px 40px;
-  margin: 20px;
-  width: 60%;
-  font-size: 1.5rem;
-  border: 2px solid rgba(40,40,40,0);
-  color: rgba(255,204,41,1);
-  font-weight: 700;
+  width: 450px;
+  overflow: hidden;
+  height: 20vh;
+  background-color: rgba(355,204,41,0.25);
 }
-.classBtn:hover{
-  background-color: rgba(220,180,20,1);
-  border: 2px solid rgba(255,255,255,0.6);
-}
-.objective{
-
-}
-.head{
-  margin-bottom: : 100px;
+.title1{
   color: white;
-  text-align: center;
-  padding: 15px 0 5px;
-  font-size: 1rem !important;
+  padding: 7px 0 3px;
   background-color: rgba(255,204,41,1);
 }
-.content{
-  text-align: center;
-  width: 60%;
-  padding: 100px;
-  margin: auto;
+.title1 h1{
+  font-size: 1.8rem;
 }
-.third{
-  /* background-color: rgba(255,204,41,0.3) */
+.created{
+  padding: 20px 0;
+  /* background-color: rgba(255,204,41,0.25); */
 }
-.contact_us{
-  padding: 5rem;
-  /* background-color: rgba(148,210,232,0.5); */
-  background-image: linear-gradient(to top, rgba(255,204,41,1) , #fff);
-}
-input,
-textarea{
-  margin: 20px auto;
-  padding: 10px 40px;
-  display: block;
-  border-radius: 10px;
-  border: none;
-  background-color: #FFCC29;
-  color: white;
-}
-::placeholder{
-color: white;
-}
-.copy{
-  background-color: #222;
+.created h2{
+
+  padding: 0 20px;
   margin: 0;
+  font-size: 1.3rem;
+  color: #444;
 }
-h4{
-  margin: 0;
+.link{
+  /* padding: 7px; */
+  /* background-color: rgba(255,204,41,0.25); */
+  padding: 7px 20px;
+}
+.link h3{
+
+margin: 0;
+font-size: 1rem;
+}
+.my-quizes{
   text-align: center;
-  color: white;
-  font-size: 16px;
-  padding: 4px;
+  margin: 30px auto;
+  width: 80%;
 }
 
 @media (max-width: 1450px) {
@@ -376,5 +303,15 @@ h4{
     margin: 5px;
     width: 60%;
     font-size: 1.3rem;
+  }
+  .quiz{
+    margin: 20px 0;
+    text-align: center;
+    /* border: 2px solid #FFCC29; */
+    border-radius: 10px;
+    /* width: 450px; */
+    overflow: hidden;
+    height: 20vh;
+    background-color: rgba(355,204,41,0.25);
   }
 }

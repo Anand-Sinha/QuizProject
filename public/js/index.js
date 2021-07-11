@@ -1,8 +1,11 @@
 
 const startBtn = document.querySelector(".start-btn");
+const startBtn1 = document.querySelector(".img");
 const nextBtn = document.querySelector(".next__btn");
 const resultBtn = document.querySelector(".result-btn");
 const mainContainer = document.querySelector(".main");
+const mainContainer1 = document.querySelector(".main1");
+const mainContainer2 = document.querySelector(".main2");
 const questionText = document.querySelector(".question__text");
 const answerBtnsContainer = document.querySelector(".answer__container");
 const scoreElement = document.querySelector(".score");
@@ -78,7 +81,10 @@ function beginCountdown() {
 const startGame = () => {
   countDownDate = new Date(Date.now() + 120 * 1000).getTime();
   startBtn.classList.add("hide");
+  startBtn1.classList.add("hide");
   mainContainer.classList.remove("hide");
+  mainContainer1.classList.remove("hide");
+  mainContainer2.classList.remove("hide");
   shuffleQuestionsArray = questions.sort(() => Math.random() - 0.5);
   currentQuesIndex = 0;
   beginCountdown();
@@ -93,7 +99,7 @@ const selectNextQue = () => {
 function resetState() {
   score += previousScore;
   previousScore = 0;
-  console.log(`Score:- ${score}`);
+  console.log(`Score - ${score}`);
   nextBtn.classList.add("hide");
   while (answerBtnsContainer.firstChild) {
     answerBtnsContainer.removeChild(answerBtnsContainer.firstChild);
@@ -132,7 +138,7 @@ const selectAnswer = (e) => {
     nextBtn.classList.remove("hide");
   } else {
     nextBtn.classList.remove("hide");
-    nextBtn.innerText = "Show results";
+    nextBtn.innerText = "Submit";
   }
 
   if (correct === "true") {
@@ -140,15 +146,18 @@ const selectAnswer = (e) => {
   } else {
     previousScore = 0;
   }
-  console.log(`PrevScore:- ${previousScore}`);
+  console.log(`PrevScore - ${previousScore}`);
 };
 
 function showResults() {
   score += previousScore;
   //   console.log(`Final Score:- ${score}`);
   mainContainer.classList.add("hide");
+  mainContainer1.classList.add("hide");
+  mainContainer2.classList.add("hide");
   scoreElement.classList.remove("hide");
-  scoreElement.innerText = `Score:- ${score}`;
+  startBtn1.classList.remove("hide");
+  scoreElement.innerText = `Score - ${score}`;
   flag = 1;
 }
 

@@ -4,13 +4,74 @@
 <head>
   <meta charset="utf-8" />
   <meta name="google-signin-client_id" content="273959803942-777qbr8ib85mmj41tjsik8alu09vn6ar.apps.googleusercontent.com" />
-  <title>Signup to ProjectQuiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuizTime - Sign Up</title>
+  <link rel="icon" href="favicon.png">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-  <link rel="stylesheet" href="css/login.css" />
+  <link rel="stylesheet" href="css/master1.css">
+  <!-- <link rel="stylesheet" href="css/login.css" /> -->
 </head>
 
 <body>
-  <div class="row">
+
+  <header class="sticky">
+    <a class="title link" href="#">QuizTime</a>
+    <ul>
+      <li>
+        <a class="linkBut1 link" href="/login">Log in</a>
+      </li>
+      <!-- <li> -->
+        <!-- <a class="linkBut2 link" href="/sign-up">Sign Up</a> -->
+      <!-- </li> -->
+    </ul>
+  </header>
+  <div class="cont row">
+
+    <div class="col-sm-12 col-md-7 left"></div>
+    <div class="col-sm-12 col-md-5 right"></div>
+    <div class="page">
+      <div class="row">
+      <div class="col-sm-12 col-md-8 innerLeft innerLeft1">
+        <h1>Sign up</h1>
+        <div class="localLogin col-lg-6">
+          <form class="sign-up" method="post" action="api/user/sign-up" id="sign-up">
+            <h6>Name</h6>
+            <input class="input" type="text" class="name" name="name" placeholder="Enter your name" required/><br />
+            <br>
+            <h6>Email</h6>
+            <input class="input" type="email" name="email" value="" placeholder="Enter your email" />
+            <br /> <br>
+            <h6>Password</h6>
+            <input class="input" type="password" name="password" value="" placeholder="Create your password" />
+            <br /> <br /><input class="input button" type="submit" name="type" value="Sign up" />
+          </form>
+        </div>
+      <div class="onlineLogin col-lg-6">
+        <form class="oauth-login" action="api/user/login" method="post">
+          <div class="g-signin2" data-onsuccess="onSignIn"></div>
+          <!-- <button id="customG" class="g-signin2" data-onsuccess="onSignIn"></button> -->
+          <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+          </fb:login-button>
+          <input id="oauthId" class="hide" type="text" name="email" value="">
+          <input id="oauthName" class="hide" type="text" name="name" value="">
+          <input id="oauth" class="hide" type="submit">
+        </form>
+      </div>
+    </div>
+      <div class="col-sm-12 col-md-4 innerRight">
+        <img class="imgRight" src="/images/main1.png" alt="">
+        <a href="/login">
+          <button class="register input" type="button" name="button">
+            Log in
+          </button></a>
+        </div>
+    </div>
+    </div>
+    </div>
+  </div>
+
+
+  <!-- <div class="row">
     <h1 class="col-lg-12">Register Here</h1>
     <div class="col-lg-6">
       <form class="sign-up" method="post" action="api/user/sign-up" id="sign-up">
@@ -18,13 +79,7 @@
         <input type="email" name="email" class="email" placeholder="Enter your email" required/>
         <br />
         <input type="password" name="password" class="password" placeholder="Create your password" required/><br />
-        <!-- <input
-            type="password"
-            class="confirm-password"
-            name="confirm-password"
-            placeholder="Confirm your password"
-          />
-          <br /> -->
+
         <button class="submit-button">signup</button>
       </form>
 
@@ -46,7 +101,7 @@
     </div>
     </form>
     <div id="fb-root"></div>
-  </div>
+  </div> -->
 
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0&appId=309089547067917&autoLogAppEvents=1" nonce="GWESBSuu"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

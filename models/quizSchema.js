@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 const shortId = require("shortid");
-
+// shortId.characters('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+var data = shortId.generate;
+// var shortData = data.toUpperCase();
+console.log(data);
+// var shortVal = shortData.slice(0,3) + shortData.slice(3,6) + shortData.slice(6,-1);
 var quizSchema = new mongoose.Schema({
   question: {
     type: [Object],
@@ -21,7 +25,7 @@ var quizSchema = new mongoose.Schema({
   short:{
     type:String,
     required: true,
-    default: shortId.generate
+    default: data
   },
   createdAt: {
     type: Date,

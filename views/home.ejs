@@ -4,11 +4,56 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="favicon.ico">
-    <link rel="stylesheet" href="/css/style.css" />
-    <title>Quiz App</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/master4.css">
+    <link rel="icon" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="/css/style.css" /> -->
+    <title>QuizTime - Quiz</title>
   </head>
   <body>
-    <section class="container">
+    <section class="cont">
+      <header class="sticky">
+        <a class="title link" href="#">QuizTime</a>
+        <ul>
+          <li>
+            <a class="linkBut1 link" href="#"><span class="count-down"></span></a>
+          </li>
+        </ul>
+      </header>
+      <div class="innerCont row">
+        <div class="col-sm-12 col-md-6 left">
+          <button data-aos="fade" class="start-btn btn">Start Quiz</button>
+          <span data-aos="fade" class="score hide">Score:- 5</span>
+          <section class="main hide">
+            <div class="question__container">
+              <span class="question__text">Rate This App!</span>
+            </div>
+        <!-- </div> -->
+      </div>
+        <div class="col-sm-12 col-md-6 right">
+          <!-- <div class="main hide"> -->
+          <div class="img">
+            <img src="/images/main1.png" alt="">
+          </div>
+          <div class="answer__container hide main1">
+            <button class="answer__btn btn" type="button">1*</button>
+            <button class="answer__btn btn" type="button">2*</button>
+            <button class="answer__btn btn" type="button">3*</button>
+            <button class="answer__btn btn" type="button">4*</button>
+            <button class="answer__btn btn" type="button">5*</button>
+          </div>
+        </section>
+          </div>
+      </div>
+      <div class="foot">
+        <div class="action__container hide main2">
+          <button class="next__btn btn" type="button">Next</button>
+        </div>
+        </div>
+    </section>
+    <!-- <section class="container">
       <button class="start-btn btn">Start Quiz</button>
       <span class="score hide">Score:- 5</span>
       <span class="count-down"></span>
@@ -27,8 +72,12 @@
           <button class="next__btn btn" type="button">Next</button>
         </div>
       </div>
-    </section>
-
+    </section> -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="module" src="/js/index.js"></script>

@@ -85,8 +85,9 @@ document.addEventListener("keypress", function (event) {
 });
 
 $(".addOption").click(function(){
+  console.log("aa");
   optNo = optNo + 1;
-  $(".options").append('<input type="text" name="answer'+ optNo +'" class="answer'+ optNo +' answer toRemove" value="" placeholder="Option ' + optNo + '"> <input type="radio" id="answer' + optNo + '" class="toRemove" name="val" value="ans' + optNo + '">');
+  $(".options").append('<input type="text" name="answer'+ optNo +'" class="answer'+ optNo +' answer input opt toRemove" value="" placeholder="Option ' + optNo + '"> <input type="radio" id="answer' + optNo + '" class="toRemove" name="val" value="ans' + optNo + '">');
 });
 
 addQuizBtn.addEventListener("click", submitQuiz);

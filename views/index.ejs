@@ -2,12 +2,50 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizTime - Your Quiz</title>
+    <link rel="icon" href="favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/master3.css">
   </head>
 
   <body>
-    <div class="my-quizes">
-      <a class="home" href="/">Go-Back</a>
+    <header class="">
+      <a class="title link" href="#">QuizTime</a>
+      <ul>
+        <li>
+          <a class="linkBut1 link" id="logout" href="#">Log out</a>
+        </li>
+      </ul>
+    </header>
+    <section class="cover">
+      <div class="row">
+      <div class="col-md-6 col-sm-12 btnClass">
+        <h1 class="headText">Your <br> Quizzes</h1>
+        <a id="inputId" ><button class="btn btn-primary firstBtn" type="button" name="button">Start a Quiz</button></a>
+        <a id="createQuiz" href="/create-quiz"><button class="btn btn-primary" type="button" name="button">Create a Quiz</button></a>
+      </div>
+      <div class="image col-sm-12 col-md-6">
+        <img src="images/main1.png" alt="">
+      </div>
+    </div>
+    </section>
+
+    <div class="my-quizes row">
+      <!-- <section class="quiz col-sm-12 col-md-4">
+        <div class="title">
+          <h1>Quiz Name</h1>
+        </div>
+        <div class="created">
+          <h2>Created: 2020-10-21</h2>
+        </div>
+        <div class="link">
+          <h3 style="color:#888;">Click link to copy.</h3>
+          <h3>https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js</h3>
+        </div>
+      </section> -->
+
+      <!-- <a class="home" href="/">Go-Back</a> -->
       <!-- <h4>Quiz name:- Tech</h4>
       <h5>Created at:- 02-10-2020</h5>
       <p style="display: inline;">Click here to copy & share the link:- <h6 class="select" id="select" style="user-select: all; display: inline;">janfkbdhkgfbsjfg</h6></p>
@@ -21,7 +59,27 @@
       <p style="display: inline;">Click here to copy & share the link:- <h6 class="select" id="select" style="user-select: all; display: inline;">janfkbdhkgfbsjfg</h6></p> -->
     </div>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" charset="utf-8"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="text/javascript">
+  document.getElementById("inputId").onclick=function(){
+    let id = prompt("Enter quiz ID here!\nTo try a default quiz leave the space blank");
+    // console.log(id);
+    if (id==""){
+      id="ouWYChESp";
+    };
+    var link = "http://"+window.location.href.split("/")[2]+'/start-quiz/'+id;
+    // console.log(link);
+    window.location = link;
+  };
+  window.addEventListener("scroll",function(){
+    var header = document.querySelector("header");
+    console.log(header);
+    header.classList.toggle("sticky", window.scrollY>0);
+  })
+  </script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="module" src="/js/logout.js"></script>
   <script type="text/javascript">
 
   let cookie = getCookie("user");
@@ -46,14 +104,32 @@ console.log(cookie);
       var address = window.location.href.split("/")[2];
       console.log(address);
       if (quiz === null) {
-        markup = `<h4>You do not have any quiz</h4>
-          <h5><a href='/create-quiz'>Click here</a> to create quiz</h5>
-        `;
+        markup = `  <section class="quiz col-sm-12 col-md-4">
+          <div class="title">
+            <h1>No Quiz Available</h1>
+          </div>
+          <div class="created">
+            <h2>Created: N/A</h2>
+          </div>
+          <div class="link">
+            <h3 style="color:#888;">Create a new quiz.</h3>
+            <h3>No link to display.</h3>
+          </div>
+        </section>     `;
       } else {
         markup = `
-        <h4>Quiz name:- ${quiz.quizName} </h4>
-        <h5>Created at:- ${quiz.createdAt}</h5>
-        <p style="display: inline;">Click on the link to copy & share the link:- <h6 class="select" id="select" style="user-select: all; display: inline;">${address}/start-quiz/${quiz.short}</h6></p>
+        <section class="quiz col-sm-12 col-md-4">
+          <div class="title1">
+            <h1>${quiz.quizName}</h1>
+          </div>
+          <div class="created">
+            <h2>Created: ${quiz.createdAt}</h2>
+          </div>
+          <div class="link">
+            <h3 style="color:#888;">Click link to copy.</h3>
+            <h3 class="select" id="select" style="user-select: all; display: inline;"">${address}/start-quiz/${quiz.short}</h3>
+          </div>
+        </section>
       `;
       }
 
@@ -68,6 +144,7 @@ console.log(cookie);
           el.onclick = function () {
             document.execCommand("Copy");
             window.getSelection().removeAllRanges();
+            alert("Link copied now you can share it with other users.");
           };
         });
       }
