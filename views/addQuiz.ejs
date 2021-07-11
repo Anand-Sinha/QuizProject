@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuizTime - Create Quiz</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/master5.css">
-    <link rel="icon" href="favicon.png">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="css/style1.css" /> -->
-  </head>
-  <body>
 
-    <header class="sticky">
-      <a class="title link" href="#">QuizTime</a>
-      <ul>
-        <li>
-          <a class="linkBut2 link" href="/">Home</a>
-        </li>
-      </ul>
-    </header>
-    <div class="cont row">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuizTime - Create Quiz</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/master5.css">
+  <link rel="icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="css/style1.css" /> -->
+</head>
 
-      <div class="col-sm-12 col-md-7 left"></div>
-      <div class="col-sm-12 col-md-5 right"></div>
-      <div class="page">
-        <div class="row">
+<body>
+
+  <header class="sticky">
+    <a class="title link" href="#">QuizTime</a>
+    <ul>
+      <li>
+        <a class="linkBut2 link" href="/">Home</a>
+      </li>
+    </ul>
+  </header>
+  <div class="cont row">
+
+    <div class="col-sm-12 col-md-7 left"></div>
+    <div class="col-sm-12 col-md-5 right"></div>
+    <div class="page">
+      <div class="row">
         <div class="col-sm-12 col-md-8 innerLeft">
           <h1>Add Quiz</h1>
           <div class="localLogin col-lg-6 form">
-            <form id='quiz' method="POST" >
+            <form id='quiz' method="POST">
               <h6>Quiz Name</h6>
               <input type="text" name="name" class="name input" value="" placeholder="Enter Quiz name Here.">
               <br /> <br>
@@ -39,33 +41,33 @@
               <br /> <br />
               <h6>Options (Mark the correct one)</h6>
               <div class="options">
-              <input type="text" name="answer1" class="answer1 answer input opt" value="" placeholder="Option 1">
-              <input type="radio" id="answer1" name="val"  value="ans1">
-              <input type="text" name="answer2" class="answer2 answer input opt" value="" placeholder="Option 2">
-              <input type="radio" id="answer2" name="val" value="ans2">
-              <!-- <div class="addOption input button"><h1>+</h1></div> -->
+                <input type="text" name="answer1" class="answer1 answer input opt" value="" placeholder="Option 1">
+                <input type="radio" id="answer1" name="val" value="ans1">
+                <input type="text" name="answer2" class="answer2 answer input opt" value="" placeholder="Option 2">
+                <input type="radio" id="answer2" name="val" value="ans2">
+                <!-- <div class="addOption input button"><h1>+</h1></div> -->
               </div>
               <button class="addOption input button" type="button" name="button">+</button>
               <div class="additionalOpt"></div>
               <button class="input button" type="button" id='addQue'>Add Question</button>
               <input type="number" class="num hide" name="count" value="">
           </div>
-      </div>
+        </div>
         <div class="col-sm-12 col-md-4 innerRight">
           <img class="imgRight" src="/images/main1.png" alt="">
           <!-- <input class="input button" type="submit" name="type" value="Login" /> -->
-            <button class="register input" id='addQuiz' class="submit" name="button" value="Finalize Quiz" />
-              Create Quiz
-            </button>
-          </div>
+          <button class="register input" id='addQuiz' class="submit" name="button" value="Finalize Quiz" />
+          Create Quiz
+          </button>
+        </div>
         </form>
       </div>
-      </div>
-      </div>
     </div>
+  </div>
+  </div>
 
 
-    <!-- <div class="form">
+  <!-- <div class="form">
     <form id='quiz' method="POST" >
       <span>Name  :</span>
       <input type="text" name="name" class="name" value="" placeholder="Enter Quiz name Here.">
@@ -88,11 +90,11 @@
     </form>
     </div> -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" charset="utf-8"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script type="module" src="js/addQuiz.js"></script>
-    <!-- <script type="text/javascript">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" charset="utf-8"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="module" src="js/addQuiz.js"></script>
+  <!-- <script type="text/javascript">
     var optNo=2;
     $(".addOption").click(function(){
       console.log("aa");
@@ -100,5 +102,6 @@
       $(".options").append('<input type="text" name="answer'+ optNo +'" class="answer'+ optNo +' answer toRemove" value="" placeholder="Option ' + optNo + '"> <input type="radio" id="answer' + optNo + '" class="toRemove" name="val" value="ans' + optNo + '">');
     });
     </script> -->
-  </body>
+</body>
+
 </html>

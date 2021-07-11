@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuizTime - Your Quiz</title>
-    <link rel="icon" href="favicon.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/master3.css">
-  </head>
 
-  <body>
-    <header class="">
-      <a class="title link" href="#">QuizTime</a>
-      <ul>
-        <li>
-          <a class="linkBut1 link" id="logout" href="#">Log out</a>
-        </li>
-      </ul>
-    </header>
-    <section class="cover">
-      <div class="row">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuizTime - Your Quiz</title>
+  <link rel="icon" href="favicon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/master3.css">
+</head>
+
+<body>
+  <header class="">
+    <a class="title link" href="#">QuizTime</a>
+    <ul>
+      <li>
+        <a class="linkBut1 link" id="logout" href="#">Log out</a>
+      </li>
+    </ul>
+  </header>
+  <section class="cover">
+    <div class="row">
       <div class="col-md-6 col-sm-12 btnClass">
         <h1 class="headText">Your <br> Quizzes</h1>
-        <a id="inputId" ><button class="btn btn-primary firstBtn" type="button" name="button">Start a Quiz</button></a>
+        <a id="inputId"><button class="btn btn-primary firstBtn" type="button" name="button">Start a Quiz</button></a>
         <a id="createQuiz" href="/create-quiz"><button class="btn btn-primary" type="button" name="button">Create a Quiz</button></a>
       </div>
       <div class="image col-sm-12 col-md-6">
         <img src="images/main1.png" alt="">
       </div>
     </div>
-    </section>
+  </section>
 
-    <div class="my-quizes row">
-      <!-- <section class="quiz col-sm-12 col-md-4">
+  <div class="my-quizes row">
+    <!-- <section class="quiz col-sm-12 col-md-4">
         <div class="title">
           <h1>Quiz Name</h1>
         </div>
@@ -45,8 +46,8 @@
         </div>
       </section> -->
 
-      <!-- <a class="home" href="/">Go-Back</a> -->
-      <!-- <h4>Quiz name:- Tech</h4>
+    <!-- <a class="home" href="/">Go-Back</a> -->
+    <!-- <h4>Quiz name:- Tech</h4>
       <h5>Created at:- 02-10-2020</h5>
       <p style="display: inline;">Click here to copy & share the link:- <h6 class="select" id="select" style="user-select: all; display: inline;">janfkbdhkgfbsjfg</h6></p>
 
@@ -57,54 +58,53 @@
       <h4>Quiz name:- Web dev</h4>
       <h5>Created at:- 02-10-2020</h5>
       <p style="display: inline;">Click here to copy & share the link:- <h6 class="select" id="select" style="user-select: all; display: inline;">janfkbdhkgfbsjfg</h6></p> -->
-    </div>
-  </body>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" charset="utf-8"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script type="text/javascript">
-  document.getElementById("inputId").onclick=function(){
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" charset="utf-8"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript">
+  document.getElementById("inputId").onclick = function() {
     let id = prompt("Enter quiz ID here!\nTo try a default quiz leave the space blank");
     // console.log(id);
-    if (id==""){
-      id="ouWYChESp";
+    if (id == "") {
+      id = "ouWYChESp";
     };
-    var link = "http://"+window.location.href.split("/")[2]+'/start-quiz/'+id;
+    var link = "http://" + window.location.href.split("/")[2] + '/start-quiz/' + id;
     // console.log(link);
     window.location = link;
   };
-  window.addEventListener("scroll",function(){
+  window.addEventListener("scroll", function() {
     var header = document.querySelector("header");
     console.log(header);
-    header.classList.toggle("sticky", window.scrollY>0);
+    header.classList.toggle("sticky", window.scrollY > 0);
   })
-  </script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script type="module" src="/js/logout.js"></script>
-  <script type="text/javascript">
-
+</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="module" src="/js/logout.js"></script>
+<script type="text/javascript">
   let cookie = getCookie("user");
   console.log(cookie);
 
-    //Walkaround method for getting a cookie, returning error on hyper as it is generating its own cookie
-    // let cookie = document.cookie;
-    // console.log("FROM HERE");
-    // console.log(cookie);
-    // const parts = cookie.split("; ");
-    // console.log(parts);
+  //Walkaround method for getting a cookie, returning error on hyper as it is generating its own cookie
+  // let cookie = document.cookie;
+  // console.log("FROM HERE");
+  // console.log(cookie);
+  // const parts = cookie.split("; ");
+  // console.log(parts);
 
-    // if(parts.length>1){
-    //   cookie = parts[2];
-    // }
+  // if(parts.length>1){
+  //   cookie = parts[2];
+  // }
 
 
-    cookie = cookie.split("").slice(7, 31).join("");
-console.log(cookie);
-    const displayQuiz = (quiz) => {
-      let markup;
-      var address = window.location.href.split("/")[2];
-      console.log(address);
-      if (quiz === null) {
-        markup = `  <section class="quiz col-sm-12 col-md-4">
+  cookie = cookie.split("").slice(7, 31).join("");
+  console.log(cookie);
+  const displayQuiz = (quiz) => {
+    let markup;
+    var address = window.location.href.split("/")[2];
+    console.log(address);
+    if (quiz === null) {
+      markup = `  <section class="quiz col-sm-12 col-md-4">
           <div class="title">
             <h1>No Quiz Available</h1>
           </div>
@@ -116,8 +116,8 @@ console.log(cookie);
             <h3>No link to display.</h3>
           </div>
         </section>     `;
-      } else {
-        markup = `
+    } else {
+      markup = `
         <section class="quiz col-sm-12 col-md-4">
           <div class="title1">
             <h1>${quiz.quizName}</h1>
@@ -131,59 +131,60 @@ console.log(cookie);
           </div>
         </section>
       `;
-      }
-
-      document
-        .querySelector(".my-quizes")
-        .insertAdjacentHTML("beforeend", markup);
-
-      var toBeCopied = Array.from(document.querySelectorAll(".select"));
-      if (toBeCopied) {
-        // console.log(toBeCopied);
-        toBeCopied.forEach((el) => {
-          el.onclick = function () {
-            document.execCommand("Copy");
-            window.getSelection().removeAllRanges();
-            alert("Link copied now you can share it with other users.");
-          };
-        });
-      }
-    };
-
-    const getQuiz = async () => {
-      try {
-        const result = await axios({
-          method: "GET",
-          url: `/api/quiz/user/${cookie}`,
-        });
-        const resultData = result.data.data;
-        // console.log("here");
-        // console.log(result);
-
-        if (resultData.length === 0) {
-          displayQuiz(null);
-        } else {
-          resultData.forEach((quiz) => {
-            displayQuiz(quiz);
-          });
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    function getCookie(cname) {
-     var name = cname + "=";
-     var ca = document.cookie.split(';');
-     for(var i=0; i<ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1);
-        if(c.indexOf(name) == 0)
-           return c.substring(name.length,c.length);
-     }
-     return "";
     }
 
-    window.addEventListener("load", getQuiz);
-  </script>
+    document
+      .querySelector(".my-quizes")
+      .insertAdjacentHTML("beforeend", markup);
+
+    var toBeCopied = Array.from(document.querySelectorAll(".select"));
+    if (toBeCopied) {
+      // console.log(toBeCopied);
+      toBeCopied.forEach((el) => {
+        el.onclick = function() {
+          document.execCommand("Copy");
+          window.getSelection().removeAllRanges();
+          alert("Link copied now you can share it with other users.");
+        };
+      });
+    }
+  };
+
+  const getQuiz = async () => {
+    try {
+      const result = await axios({
+        method: "GET",
+        url: `/api/quiz/user/${cookie}`,
+      });
+      const resultData = result.data.data;
+      // console.log("here");
+      // console.log(result);
+
+      if (resultData.length === 0) {
+        displayQuiz(null);
+      } else {
+        resultData.forEach((quiz) => {
+          displayQuiz(quiz);
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') c = c.substring(1);
+      if (c.indexOf(name) == 0)
+        return c.substring(name.length, c.length);
+    }
+    return "";
+  }
+
+  window.addEventListener("load", getQuiz);
+</script>
+
 </html>

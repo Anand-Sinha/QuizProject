@@ -30,40 +30,40 @@
     <div class="col-sm-12 col-md-5 right"></div>
     <div class="page">
       <div class="row">
-      <div class="col-sm-12 col-md-8 innerLeft">
-        <h1>Log in</h1>
-        <div class="localLogin col-lg-6">
-          <form class="" action="api/user/login" method="post">
-            <h6>Email</h6>
-            <input class="input" type="email" name="email" value="" placeholder="Enter your email" />
-            <br /> <br>
-            <h6>Password</h6>
-            <input class="input" type="password" name="password" value="" placeholder="Password" />
-            <br /> <br /><input class="input button" type="submit" name="type" value="Login" />
-          </form>
+        <div class="col-sm-12 col-md-8 innerLeft">
+          <h1>Log in</h1>
+          <div class="localLogin col-lg-6">
+            <form class="" action="api/user/login" method="post">
+              <h6>Email</h6>
+              <input class="input" type="email" name="email" value="" placeholder="Enter your email" />
+              <br /> <br>
+              <h6>Password</h6>
+              <input class="input" type="password" name="password" value="" placeholder="Password" />
+              <br /> <br /><input class="input button" type="submit" name="type" value="Login" />
+            </form>
+          </div>
+          <div class="onlineLogin col-lg-6">
+            <form class="oauth-login" action="api/user/login" method="post">
+              <div class="g-signin2" data-onsuccess="onSignIn"></div>
+              <!-- <button id="customG" class="g-signin2" data-onsuccess="onSignIn"></button> -->
+              <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+              </fb:login-button>
+              <input id="oauthId" class="hide" type="text" name="email" value="">
+              <input id="oauthName" class="hide" type="text" name="name" value="">
+              <input id="oauth" class="hide" type="submit">
+            </form>
+          </div>
         </div>
-      <div class="onlineLogin col-lg-6">
-        <form class="oauth-login" action="api/user/login" method="post">
-          <div class="g-signin2" data-onsuccess="onSignIn"></div>
-          <!-- <button id="customG" class="g-signin2" data-onsuccess="onSignIn"></button> -->
-          <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-          </fb:login-button>
-          <input id="oauthId" class="hide" type="text" name="email" value="">
-          <input id="oauthName" class="hide" type="text" name="name" value="">
-          <input id="oauth" class="hide" type="submit">
-        </form>
+        <div class="col-sm-12 col-md-4 innerRight">
+          <img class="imgRight" src="/images/main1.png" alt="">
+          <a href="/sign-up">
+            <button class="register input" type="button" name="button">
+              Sign Up
+            </button></a>
+        </div>
       </div>
     </div>
-      <div class="col-sm-12 col-md-4 innerRight">
-        <img class="imgRight" src="/images/main1.png" alt="">
-        <a href="/sign-up">
-          <button class="register input" type="button" name="button">
-            Sign Up
-          </button></a>
-        </div>
-    </div>
-    </div>
-    </div>
+  </div>
   </div>
   <!-- <div class="row">
     <h1 class="col-lg-12">Login Page</h1>
@@ -99,10 +99,10 @@
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
   <script type="module" src="/js/index.js"></script>
   <script type="text/javascript">
+    window.onbeforeunload = function(e) {
+      gapi.auth2.getAuthInstance().signOut();
+    };
 
-  window.onbeforeunload = function(e){
-  gapi.auth2.getAuthInstance().signOut();
-};
     function onSignIn(googleUser) {
       var profile = googleUser.getBasicProfile();
       document.querySelector("#oauthId").value = profile.getId();

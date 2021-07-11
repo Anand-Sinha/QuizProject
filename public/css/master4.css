@@ -108,9 +108,8 @@ header.sticky ul li a{
   /* width: 50%; */
   /* width: 100%; */
 }
-.question__text,.score{
+.question__text,.score,.question__container{
   border-radius: 7px;
-  background-color: rgba(0,0,0,0.2);
   padding: 12px 40px;
   /* text-align: right; */
   font-weight: 700;
@@ -118,7 +117,11 @@ header.sticky ul li a{
   letter-spacing: 2px;
   font-size: 1.2rem;
 }
+.question__container{
+  background-color: rgba(0,0,0,0.2);
+}
 .score{
+  background-color: rgba(0,0,0,0.2);
   /* color: limegreen; */
   font-size: 1.5rem;
 }
